@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "gradientk-angular-todolist"
+  "defaultProject": "gradientk-angular-todolist",
+  "cli": {
+    "analytics": "9b780a1a-22c3-4460-9d0d-1a904292d4f6"
+  }
 }
