@@ -22,7 +22,9 @@ export class TodoService {
    * Get Todos
    */
   getTodos(): Observable<Todo[]> {
-    return this.http.get<Todo[]>(`${this.todosUrl}${this.todosLimit}`);
+    const url = `${this.todosUrl}${this.todosLimit}`;
+    console.log('[GET] all todos: ' + url);
+    return this.http.get<Todo[]>(url);
   }
 
   /**
@@ -30,6 +32,7 @@ export class TodoService {
    */
   deleteTodo(todo: Todo): Observable<Todo> {
     const url = `${this.todosUrl}/${todo.id}`;
+    console.log('[DELETE] todo: ' + url);
     return this.http.delete<Todo>(url, httpOptions);
   }
 
@@ -38,6 +41,7 @@ export class TodoService {
    */
   toggleCompleted(todo: Todo): Observable<any> {
     const url = `${this.todosUrl}/${todo.id}`;
+    console.log('[PUT] update todo status: ' + url);
     return this.http.put(url, todo, httpOptions);
   }
 }

@@ -8,12 +8,14 @@ import { TodosComponent } from './components/todos/todos.component';
 import { Todo } from './models/Todo';
 import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { HeaderComponent } from './components/layout/header/header.component';
+import { FooterComponent } from './components/layout/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
     TodosComponent,
     TodoItemComponent,
     HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
