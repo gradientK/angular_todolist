@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
 
-## ToDo List using Angular.
+## ToDo List using Angular
 
 Requires JSONPlaceholder.typicode.com
 Special thanks to the Traversy Media Angular Crash Course this is based upon.
