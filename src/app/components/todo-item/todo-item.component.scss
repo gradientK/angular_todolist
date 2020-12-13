@@ -1,13 +1,38 @@
-.del {
-  background: #ff0000;
-  color: #fff;
-  padding: 5px 9px;
-  border-radius: 50%;
+@mixin bttns {
+  font-size: 12px;
+  padding: 8px 20px;
+  border-radius: 10px;
   cursor: pointer;
   float: right;
 }
 
-.todo {
+.btn-del {
+  @include bttns;
+
+  background-color: red;
+  color: white;
+  border: 2px solid white;
+
+  &:hover {
+    color: black;
+    border: 2px solid black;
+  }
+}
+
+.btn-edit {
+  @include bttns;
+
+  background-color: yellow;
+  color: black;
+  border: 2px solid white;
+
+  &:hover {
+    color: black;
+    border: 2px solid black;
+  }
+}
+
+.todo-obj {
   background: #f4f4f4;
   padding: 10px;
   border-bottom: 1px #ccc dotted;

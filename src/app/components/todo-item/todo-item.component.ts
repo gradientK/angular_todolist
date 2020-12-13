@@ -20,9 +20,9 @@ export class TodoItemComponent implements OnInit {
   /**
    * Set Dynamic Classes
    */
-  setClasses(): any {   // Could probably define type of classes better
-    let classes = {
-      todo: true,
+  setClasses(): any {   // Could probably define type of 'classes' better
+    const classes = {
+      'todo-obj': true,
       'is-complete': this.todo.completed
     };
 
@@ -36,7 +36,7 @@ export class TodoItemComponent implements OnInit {
     // Toggle in UI
     todo.completed = !todo.completed;
     // Toggle on server
-    this.todoService.toggleCompleted(todo).subscribe((todo) => console.log(todo));
+    this.todoService.toggleCompleted(todo).subscribe(() => console.log(todo));
   }
 
   /**
