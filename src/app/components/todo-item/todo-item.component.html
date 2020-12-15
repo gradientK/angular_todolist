@@ -1,8 +1,17 @@
-<div [ngClass]="setClasses()">
-  <p>
-    <input (change)="onToggle(todo)" [checked]="todo.completed" type="checkbox" />
-    {{ todo.title }}
-    <button (click)="onDelete(todo)" class="btn-del">DELETE</button>
-    <button class="btn-edit">EDIT</button>
-  </p>
+<div>
+  <div [ngClass]="setClasses()" *ngIf="!editMode">
+    <p>
+      <input (change)="onToggle(todo)" [checked]="todo.completed" type="checkbox" />
+      {{ todo.title }}
+      <button (click)="onDelete(todo)" class="btn-del">DELETE</button>
+      <button (click)="onEdit(todo)" class="btn-edit">EDIT</button>
+    </p>
+  </div>
+  <div class="todo-obj" *ngIf="editMode">
+    <p>
+      Edit Todo Description: <input type="text" [(ngModel)]="tempTitle" />
+      <button (click)="onCancelEdit(todo)" class="btn-cancel">CANCEL</button>
+      <button (click)="onSave(todo)" class="btn-save">SAVE</button>
+    </p>
+  </div>
 </div>

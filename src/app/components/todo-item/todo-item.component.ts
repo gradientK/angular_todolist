@@ -8,11 +8,15 @@ import { Todo } from 'src/app/models/Todo';
   styleUrls: ['./todo-item.component.scss']
 })
 export class TodoItemComponent implements OnInit {
-  @Input()
-  todo: Todo = new Todo();
-  @Output() deleteTodo: EventEmitter<Todo> = new EventEmitter();
+  @Input() todo: Todo = new Todo();
+  @Output() deleteTodoEmit: EventEmitter<Todo> = new EventEmitter();
+  @Output() saveTodoEmit: EventEmitter<Todo> = new EventEmitter();
 
-  constructor(private todoService: TodoService) { }
+  editMode = false; // Used to signify when editing a Todo
+  public tempTitle = '';   // Used to edit/save todo Title
+
+  constructor(private todoService: TodoService) {
+  }
 
   ngOnInit(): void {
   }
@@ -20,12 +24,11 @@ export class TodoItemComponent implements OnInit {
   /**
    * Set Dynamic Classes
    */
-  setClasses(): any {   // Could probably define type of 'classes' better
+  setClasses(): any {  // What is the type class of 'classes'
     const classes = {
       'todo-obj': true,
       'is-complete': this.todo.completed
     };
-
     return classes;
   }
 
@@ -40,10 +43,34 @@ export class TodoItemComponent implements OnInit {
   }
 
   /**
-   * onDelete
+   * onDelete Todo
    */
   onDelete(todo: Todo): void {
-    this.deleteTodo.emit(todo);
+    this.deleteTodoEmit.emit(todo);
   }
 
+  /**
+   * OnEdit Todo
+   */
+  onEdit(todo: Todo): void {
+    this.tempTitle = todo.title;
+    this.editMode = true;
+  }
+
+  /**
+   * onCancelEdit
+   */
+  onCancelEdit(todo: Todo): void {
+    this.editMode = false; // Update UI
+  }
+
+  /**
+   * onSave Todo
+   */
+  onSave(todo: Todo): void {
+    this.editMode = false;  // Update UI
+    this.todo.title = this.tempTitle; // Update Todo
+    // Update Server
+    this.todoService.updateSave(todo).subscribe(() => console.log(todo));
+  }
 }

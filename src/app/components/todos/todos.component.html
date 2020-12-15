@@ -1,6 +1,6 @@
 <app-todo-item 
   *ngFor="let todo of todos" 
   [todo]="todo"
-  (deleteTodo)="deleteTodo($event)"
+  (deleteTodoEmit)="deleteTodoCall($event)"
   >
 </app-todo-item>

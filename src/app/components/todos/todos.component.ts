@@ -22,10 +22,13 @@ export class TodosComponent implements OnInit {
   /**
    * Delete Todo
    */
-  deleteTodo(todo: Todo): void {
+  deleteTodoCall(event: Todo): void {
     // Update UI
-    this.todos = this.todos.filter(t => t.id !== todo.id);
-    // Mock delete from server
-    this.todoService.deleteTodo(todo).subscribe();
+    this.todos = this.todos.filter(t => t.id !== event.id);
+    // Mock (because it's JSONPlaceholder) delete from server
+    this.todoService.deleteTodo(event).subscribe();
   }
+
+
+
 }

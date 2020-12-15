@@ -1,11 +1,23 @@
+.todo-obj {
+  background: #f4f4f4;
+  padding: 10px;
+  border-bottom: 1px #ccc dotted;
+}
+
+.is-complete {
+  text-decoration: line-through;
+}
+
+/* General button properties */
 @mixin bttns {
   font-size: 12px;
+  float: right;
   padding: 8px 20px;
   border-radius: 10px;
   cursor: pointer;
-  float: right;
 }
 
+/* Delete Button */
 .btn-del {
   @include bttns;
 
@@ -19,6 +31,7 @@
   }
 }
 
+/* Edit Button */
 .btn-edit {
   @include bttns;
 
@@ -27,17 +40,34 @@
   border: 2px solid white;
 
   &:hover {
-    color: black;
     border: 2px solid black;
   }
 }
 
-.todo-obj {
-  background: #f4f4f4;
-  padding: 10px;
-  border-bottom: 1px #ccc dotted;
+/* Save Button */
+.btn-save {
+  @include bttns;
+
+  background-color: #53ff1a;
+  color: black;
+  border: 2px solid white;
+
+  &:hover {
+    border: 2px solid black;
+  }
 }
 
-.is-complete {
-  text-decoration: line-through;
+/* Cancel Button */
+.btn-cancel {
+  @include bttns;
+
+  background-color: black;
+  color: white;
+  border: 2px solid white;
+
+  &:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+  }
 }

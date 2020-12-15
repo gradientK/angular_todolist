@@ -26,18 +26,30 @@ export class TodoService {
   }
 
   /**
+   * Toggle Todo.Completed
+   */
+  toggleCompleted(todo: Todo): Observable<any> {
+    const url = `${this.todosUrl}/${todo.id}`;
+    console.log('[PUT] Update completed: ' + url);
+    return this.http.put(url, todo, httpOptions);
+  }
+
+  /**
    * Delete Todo
    */
   deleteTodo(todo: Todo): Observable<Todo> {
     const url = `${this.todosUrl}/${todo.id}`;
+    console.log('[DEL] todo: ' + url);
     return this.http.delete<Todo>(url, httpOptions);
   }
 
   /**
-   * Toggle Completed
+   * Update Save
    */
-  toggleCompleted(todo: Todo): Observable<any> {
+  updateSave(todo: Todo): Observable<Todo> {
     const url = `${this.todosUrl}/${todo.id}`;
-    return this.http.put(url, todo, httpOptions);
+    console.log('[PUT] todo: ' + url);
+    return this.http.put<Todo>(url, todo, httpOptions);
   }
+
 }
