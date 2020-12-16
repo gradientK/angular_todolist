@@ -1,5 +1,5 @@
 <div>
-  <div [ngClass]="setClasses()" *ngIf="!editMode">
+  <div class="todo-obj" [ngClass]="setClasses()" *ngIf="!editMode">
     <p>
       <input (change)="onToggle(todo)" [checked]="todo.completed" type="checkbox" />
       {{ todo.title }}
@@ -7,11 +7,12 @@
       <button (click)="onEdit(todo)" class="btn-edit">EDIT</button>
     </p>
   </div>
-  <div class="todo-obj" *ngIf="editMode">
+  <div class="todo-edit-obj" *ngIf="editMode">
     <p>
-      Edit Todo Description: <input type="text" [(ngModel)]="tempTitle" />
-      <button (click)="onCancelEdit(todo)" class="btn-cancel">CANCEL</button>
+      Todo Description: <input type="text" [(ngModel)]="tempTitle" size="40px" /><br>
       <button (click)="onSave(todo)" class="btn-save">SAVE</button>
+      <button (click)="onCancelEdit(todo)" class="btn-cancel">CANCEL</button>
     </p>
+    <p class="error" *ngIf="emptyTitle">Todo description cannot be empty</p>
   </div>
 </div>

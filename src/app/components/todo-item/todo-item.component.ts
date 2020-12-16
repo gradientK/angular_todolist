@@ -14,6 +14,7 @@ export class TodoItemComponent implements OnInit {
 
   editMode = false; // Used to signify when editing a Todo
   public tempTitle = '';   // Used to edit/save todo Title
+  emptyTitle = false; // Used to check for empty input field
 
   constructor(private todoService: TodoService) {
   }
@@ -26,7 +27,6 @@ export class TodoItemComponent implements OnInit {
    */
   setClasses(): any {  // What is the type class of 'classes'
     const classes = {
-      'todo-obj': true,
       'is-complete': this.todo.completed
     };
     return classes;
@@ -62,15 +62,24 @@ export class TodoItemComponent implements OnInit {
    */
   onCancelEdit(todo: Todo): void {
     this.editMode = false; // Update UI
+    this.emptyTitle = false;  // Ensure set to false after exiting edit mode
   }
 
   /**
    * onSave Todo
    */
   onSave(todo: Todo): void {
-    this.editMode = false;  // Update UI
-    this.todo.title = this.tempTitle; // Update Todo
-    // Update Server
-    this.todoService.updateSave(todo).subscribe(() => console.log(todo));
+    // If input field is empty after editing
+    if (this.tempTitle === '') {
+      this.emptyTitle = true;
+    } else {
+    // Field is fine, proceed
+      this.editMode = false;  // Update UI
+      this.todo.title = this.tempTitle; // Update Todo
+      // Update Server
+      this.todoService.updateSave(todo).subscribe(() => console.log(todo));
+      // Ensure error messsage is hidden
+      this.emptyTitle = false;
+    }
   }
 }

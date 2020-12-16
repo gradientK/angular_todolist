@@ -5,8 +5,7 @@ import { Todo } from '../../models/Todo';
 @Component({
   selector: 'app-todos',
   templateUrl: './todos.component.html',
-  styles: [],
-  // styleUrls: ['./todos.component.scss']
+  styleUrls: ['./todos.component.scss'],
 })
 export class TodosComponent implements OnInit {
   todos: Todo[] = [];
@@ -29,6 +28,13 @@ export class TodosComponent implements OnInit {
     this.todoService.deleteTodo(event).subscribe();
   }
 
-
+  /**
+   * Add Todo
+   */
+  addTodo(todo: Todo): void {
+    this.todoService.addTodo(todo).subscribe(t => {
+      this.todos.push(todo);
+    });
+  }
 
 }

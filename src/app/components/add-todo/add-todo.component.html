@@ -1,0 +1,14 @@
+<div class="add-popout">
+  <br>
+  <input type="text" id="form-input" [(ngModel)]="title" 
+    placeholder="Add Todo..." size="32px" 
+  />
+  <button id="submit-btn" (click)="onSubmit()" class="submit-btn">
+    SUBMIT
+  </button>
+  <button id="cancel-btn" (click)="onCancel()" class="cancel-btn">
+    CANCEL
+  </button>
+  <p id="error" *ngIf="emptyTitle">Todo description cannot be empty</p>
+  <br>
+</div>

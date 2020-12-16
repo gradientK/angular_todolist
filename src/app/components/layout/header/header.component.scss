@@ -1,6 +1,21 @@
 .header {
-  background-color: #0066ff;
+  background-color: #1a2238;
   color: white;
   text-align: center;
   padding: 10px;
+}
+
+a {
+  &:link {
+    color: black;
+  }
+  &:visited {
+    color: white;
+  }
+  &:hover {
+    color: greenyellow;
+  }
+  &:active {
+    color: blue;
+  }
 }

@@ -1,0 +1,49 @@
+.add-popout {
+  margin: auto;
+  text-align: center;
+  background-color: #f4f4f4;
+}
+
+#form-input {
+  flex: 10;
+}
+
+#error {
+  color: red;
+}
+
+/* Submit Button */
+#submit-btn {
+  font-size: 12px;
+  padding: 8px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+
+  background-color: #0000b3;
+  color: white;
+  border: 2px solid white;
+
+  &:hover {
+    background-color: white;
+    color: #0000b3;
+    border: 2px solid #0000b3;
+  }
+}
+
+/* Cancel Button */
+#cancel-btn {
+  font-size: 12px;
+  padding: 8px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+
+  background-color: black;
+  color: white;
+  border: 2px solid white;
+
+  &:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+  }
+}

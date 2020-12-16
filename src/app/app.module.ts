@@ -10,6 +10,8 @@ import { Todo } from './models/Todo';
 import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
+import { AddTodoComponent } from './components/add-todo/add-todo.component';
+import { AboutComponent } from './components/pages/about/about.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { FooterComponent } from './components/layout/footer/footer.component';
     TodoItemComponent,
     HeaderComponent,
     FooterComponent,
+    AddTodoComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

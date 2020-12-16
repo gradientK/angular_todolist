@@ -44,6 +44,14 @@ export class TodoService {
   }
 
   /**
+   * Add Todo
+   */
+  addTodo(todo: Todo): Observable<Todo> {
+    console.log('[POST] Add todo: ' + this.todosUrl);
+    return this.http.post<Todo>(this.todosUrl, todo, httpOptions);
+  }
+
+  /**
    * Update Save
    */
   updateSave(todo: Todo): Observable<Todo> {
