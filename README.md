@@ -6,6 +6,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Special thanks to the Traversy Media Angular Crash Course this is based upon.
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/84fd5dfb-2770-4140-aedb-2a02c3e2316f/deploy-status)](https://app.netlify.com/sites/angulartodolist/deploys)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
